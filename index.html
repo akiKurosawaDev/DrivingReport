@@ -9,10 +9,10 @@
     <body class="py-4">
         <main>
         <div class="container">
-            <h1>運転日報</h1>
+            <h3>運転日報</h3>
             <p>アルコールチェッカー対応版。Googleフォームへデータを転送します。</p>
         
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJddCc1lgE2NBh8Nbv6AzVTikZjn5dWfwOEdhlaAdWOPs6CA/formResponse" method="POST" id="mG61Hd" novaformate>
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJddCc1lgE2NBh8Nbv6AzVTikZjn5dWfwOEdhlaAdWOPs6CA/formResponse" method="POST" id="mG61Hd" target="hidden_iframe" novaformate onsubmit="submitted=true;">
                 <div class="mb-3">
                     <lable for="date" class="form-label">日付</lable>
                     <input type="date" id="date" name="entry.1857636373" class="form-control" required>
@@ -61,6 +61,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="control.js" charset="UTF-8"></script>
         <script>
+            let submitted = false;
+
             window.onload = () => {
                 const date = document.getElementById('date');
                 const now = new Date(Date.now() + ((new Date).getTimezoneOffset() + 9 * 60) * 60 * 1000);
@@ -85,5 +87,6 @@
                 pict.addEventListener('change', fileupload);
             }
         </script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='result.html';}"></iframe>
     </body>
 </html>

@@ -1,23 +1,5 @@
 const GAS = 'https://script.google.com/macros/s/AKfycbzKdPwnQfxlZ0vcO88aq6KDD-JoMeKxDqqIPVeVQtlWI9sIvK5UGTxigOkRJ2EmY5E1XA/exec';
 
-/**window.onload = () => {
-    const date = document.getElementById('date');
-    const now = new Date()
-    date.value = now.toISOString().split('T')[0];
-
-    const start = document.getElementById('start');
-    start.value = '08:00';
-
-    const end = document.getElementById('end');
-    end.value = '17:00';
-
-    const meter = document.getElementById('meter');
-    meter.value = 0;
-
-    const mileage = document.getElementById('mileage');
-    mileage.value = 0;
-}*/
-
 function fileupload(ev) {
     const reader = new FileReader();
     const image = new Image();

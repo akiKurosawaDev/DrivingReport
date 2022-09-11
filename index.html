@@ -12,7 +12,7 @@
             <h3>運転日報</h3>
             <p>アルコールチェッカー対応版。Googleフォームへデータを転送します。</p>
         
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJddCc1lgE2NBh8Nbv6AzVTikZjn5dWfwOEdhlaAdWOPs6CA/formResponse" method="POST" id="mG61Hd" target="hidden_iframe" novaformate onsubmit="page_state.state = true;">
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJddCc1lgE2NBh8Nbv6AzVTikZjn5dWfwOEdhlaAdWOPs6CA/formResponse" method="POST" id="mG61Hd" target="hidden_iframe" novaformate onsubmit="page_state.submitted = true;">
                 <div class="mb-3">
                     <lable for="date" class="form-label">日付</lable>
                     <input type="date" id="date" name="entry.1857636373" class="form-control" required>
@@ -87,16 +87,16 @@
                 const pict = document.getElementById('pict');
                 pict.addEventListener('change', fileupload);
 
-                const iframe = document.getElementById('hidden_iframe');
-                iframe.addEventListener('load', iframe_load);
-            }
+                const form = document.getElementById('mG61Hd');
+                form.addEventListener('submit', () => page_state.submitted = true);
 
-            function iframe_load() {
-                if (page_state.state) window.location='result.html';
+                const iframe = document.getElementById('hidden_iframe');
+                iframe.addEventListener('load', () => {
+                    if (page_state.submitted) window.location='result.html';});
             }
 
             class page_state {
-                static state = false;
+                static submitted = false;
             }
         </script>
     </body>

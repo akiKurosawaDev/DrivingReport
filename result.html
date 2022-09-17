@@ -10,9 +10,44 @@
         <main>
             <div class="container">
                 <h3>運転日報入力結果</h3>
-                <p>入力ありがとうございました</p>
-                <p>Googleフォームに送信しました</p>
+                <p>入力ありがとうございました<br>以下の内容をGoogleフォームに送信しました</p>
+                <div class="mb-3">日付
+                    <p id="date"></p>
+                </div>
+                <div class="mb-3">運転開始時刻
+                    <p id="start"></p>
+                </div>
+                <div class="mb-3">運転終了時刻
+                    <p id="end"></p>
+                </div>
+                <div class="mb-3">運転者氏名
+                    <p id="name"></p>
+                </div>
+                <div class="mb-3">アルコールチェッカー
+                    <p id="check"></p>
+                </div>
+
             </div>
         </main>
+        <script>
+            window.onload = () => {
+                const page = JSON.parse(sessionStorage.getItem('page'));
+                console.log(page);
+                const date = document.getElementById('date');
+                date.textContent = page.date;
+
+                const start = document.getElementById('start');
+                start.textContent = page.start;
+
+                const end = document.getElementById('end');
+                end.textContent = page.end;
+
+                const name = document.getElementById('name');
+                name.textContent = page.name;
+
+                const check = document.getElementById('check');
+                check.textContent = page.check;
+            }
+        </script>
     </body>
 </html>

@@ -1,5 +1,9 @@
 const GAS = 'https://script.google.com/macros/s/AKfycbzKdPwnQfxlZ0vcO88aq6KDD-JoMeKxDqqIPVeVQtlWI9sIvK5UGTxigOkRJ2EmY5E1XA/exec';
 
+/**
+ * pict コントロール（画像ファイル参照）変更時のイベントハンドラです。
+ * @param {*} ev 
+ */
 function fileupload(ev) {
     const reader = new FileReader();
     const image = new Image();
